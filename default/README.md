@@ -1,31 +1,37 @@
 # Math Operations Example
 
-This repository demonstrates simple math operations (addition and subtraction) and includes automated testing using pytest.
+This repository contains simple math operations (addition and subtraction) with comprehensive pytest-based test coverage.
 
-## Source Code
-- The core logic is in `src/math_operations.py`.
+## Folder Structure
 
-## Tests
-- All tests are in the `tests/` folder.
-- Run tests using the following command:
-
-```bash
-pytest tests/
-```
-
-## Requirements
-- Python 3.10+
-- See `default/requirements.txt` for dependencies.
-
-## CI/CD
-- Workflow file: `.github/workflows/ci.yml`
-- Test reports are saved to the `reports/` directory (JUnit and HTML).
+- `src/`: Contains production code (`math_operations.py`).
+- `tests/`: Contains test files (`test_add.py`, `test_subtract.py`).
+- `default/`: Contains workflow metadata (`math.json`), requirements, and this README.
 
 ## Usage
 
+To use the math functions:
+
 ```
 from src.math_operations import add, subtract
-
-print(add(2, 3))        # Output: 5
-print(subtract(5, 2))   # Output: 3
+result = add(1, 2)
+result2 = subtract(3, 1)
 ```
+
+## Testing
+
+Install dependencies:
+
+```
+pip install -r default/requirements.txt
+```
+
+Run tests:
+
+```
+pytest tests/
+```
+
+## CI Workflow
+
+See `.github/workflows/ci.yml` for automated testing instructions. Workflow metadata is in `default/math.json`.
