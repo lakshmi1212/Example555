@@ -1,21 +1,7 @@
 def add(a, b):
-    """
-    Returns the sum of two numbers.
-    Args:
-        a (int|float): First number
-        b (int|float): Second number
-    Returns:
-        int|float: Sum of a and b
-    """
+    """Add two numbers and return the result."""
     return a + b
 
 def subtract(a, b):
-    """
-    Returns the difference between two numbers (a - b).
-    Args:
-        a (int|float): First number
-        b (int|float): Second number
-    Returns:
-        int|float: Difference of a and b
-    """
+    """Subtract second number from first and return the result."""
     return a - b

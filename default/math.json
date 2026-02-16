@@ -37,11 +37,7 @@
     "html_file": "reports/report.html"
   },
   "s3_upload": {
-    "enabled": false,
-    "bucket_name": "",
-    "prefix": "",
-    "region": "",
-    "versioning_strategy": ""
+    "enabled": false
   },
   "constraints": {
     "modify_source_files": false,
@@ -53,8 +49,8 @@
   },
   "jobs": [
     {
-      "job_id": "ci_test_job",
-      "job_name": "Run Pytest and Generate Reports",
+      "job_id": "ci",
+      "job_name": "Python CI",
       "runs_on": "ubuntu-latest",
       "steps": [
         {
@@ -65,10 +61,7 @@
         {
           "step_name": "Set up Python",
           "action_type": "uses",
-          "action": "actions/setup-python@v5",
-          "with": {
-            "python-version": "3.10"
-          }
+          "action": "actions/setup-python@v5"
         },
         {
           "step_name": "Install dependencies",
@@ -76,7 +69,7 @@
           "command": "pip install -r default/requirements.txt"
         },
         {
-          "step_name": "Run pytest",
+          "step_name": "Run tests",
           "action_type": "run",
           "command": "python -m pytest tests/ -v --tb=short --junitxml=reports/report.xml --html=reports/report.html --self-contained-html"
         }
