@@ -1,20 +1,14 @@
 import pytest
 from src.math_operations import subtract
 
-def test_subtract_positive_numbers():
-    assert subtract(5, 2) == 3
-
-def test_subtract_negative_numbers():
-    assert subtract(-5, -2) == -3
-
-def test_subtract_zero():
-    assert subtract(0, 0) == 0
-
-def test_subtract_positive_and_negative():
-    assert subtract(-5, 10) == -15
-
-def test_subtract_floats():
-    assert subtract(3.5, 2.1) == pytest.approx(1.4)
-
-def test_subtract_large_numbers():
-    assert subtract(2_000_000, 1_000_000) == 1_000_000
+@pytest.mark.parametrize("a, b, expected", [
+    (3, 2, 1),
+    (-1, -1, 0),
+    (0, 0, 0),
+    (200, 100, 100),
+    (-5, 5, -10),
+    (2.5, 1.5, 1.0),
+    (1e10, 1e9, 9e9)
+])
+def test_subtract(a, b, expected):
+    assert subtract(a, b) == expected
